@@ -1,2 +1,2 @@
-const planets = [];
+const planets = ["hehe"];
 export { planets };
