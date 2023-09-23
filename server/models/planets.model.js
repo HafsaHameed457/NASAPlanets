@@ -1,6 +1,6 @@
 import { parse } from "csv-parse";
 import fs from "fs";
-let habitatable_Planets = [];
+let planets = [];
 
 function isHabitatable(planet) {
   return (
@@ -10,16 +10,25 @@ function isHabitatable(planet) {
     planet["koi_prad"] < 1.6
   );
 }
-fs.createReadStream("kepler_Data.csv")
-  .pipe(parse({ comment: "#", columns: true }))
-  .on("data", (data) => {
-    if (isHabitatable(data)) {
-      habitatable_Planets.push(data);
-    }
-  })
-  .on("error", (err) => {
-    console.log(err);
-  })
-  .on("end", () => {
-    console.log(habitatable_Planets.map((planet) => planet.kepoi_name));
+
+function loadPlanets() {
+  return new Promise((resolve, reject) => {
+    fs.createReadStream("../server/data/kepler_data.csv")
+      .pipe(parse({ comment: "#", columns: true }))
+      .on("data", (data) => {
+        if (isHabitatable(data)) {
+          planets.push(data);
+        }
+      })
+      .on("error", (err) => {
+        console.log(err);
+        reject(err);
+      })
+      .on("end", () => {
+        console.log(planets);
+        resolve();
+      });
   });
+}
+
+export { loadPlanets, planets };

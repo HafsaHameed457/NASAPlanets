@@ -1,6 +1,7 @@
 async function httpGetPlanets() {
   const url = "http://localhost:5000";
   const response = await fetch(`${url}/planets`);
+  console.log(response);
   console.log(process.env.REACT_APP_API_URL);
 
   return await response.json();

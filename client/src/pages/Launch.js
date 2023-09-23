@@ -10,6 +10,7 @@ const Launch = (props) => {
       </option>
     ));
   }, [props.planets]);
+  console.log(selectorBody);
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -59,8 +60,7 @@ const Launch = (props) => {
         />
         <label htmlFor="planets-selector">Destination Exoplanet</label>
         <select id="planets-selector" name="planets-selector">
-          eee
-          {/* {selectorBody} */}
+          {selectorBody}
         </select>
         <Clickable>
           <Button
