@@ -25,7 +25,6 @@ function loadPlanets() {
         reject(err);
       })
       .on("end", () => {
-        console.log(planets);
         resolve();
       });
   });

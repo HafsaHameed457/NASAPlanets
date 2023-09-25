@@ -1,5 +1,6 @@
 import express from "express";
 import { planetsRouter } from "../routes/planets/planets.router.js";
+import path from "path";
 import cors from "cors";
 //Initializing app
 
@@ -10,6 +11,10 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.static("../server/public"));
 
 app.use("/planets", planetsRouter);
+app.get("/", (req, res) => {
+  res.sendFile("../server/public/index.html");
+});
 export default app;
