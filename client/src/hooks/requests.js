@@ -1,13 +1,16 @@
+const url = "http://localhost:5000";
 async function httpGetPlanets() {
-  const url = "http://localhost:5000";
   const response = await fetch(`${url}/planets`);
-  console.log(response);
-  console.log(process.env.REACT_APP_API_URL);
 
   return await response.json();
 }
 
 async function httpGetLaunches() {
+  const response = await fetch(`${url}/launch`);
+  const launches = await response.json();
+  return launches.sort((a, b) => {
+    return a.flightNumber - b.flightNumber;
+  });
   // TODO: Once API is ready.
   // Load launches, sort by flight number, and return as JSON.
 }
