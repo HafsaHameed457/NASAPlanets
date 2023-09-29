@@ -1,5 +1,5 @@
-import { planets } from "../../models/planets.model.js";
-const getAllPlanets = (req, res) => {
-  res.status(200).json(planets);
+import { getAllPlanets } from "../../models/planets.model.js";
+const httpGetAllPlanets = (req, res) => {
+  res.status(200).json(getAllPlanets());
 };
-export { getAllPlanets };
+export { httpGetAllPlanets };

@@ -29,5 +29,8 @@ function loadPlanets() {
       });
   });
 }
+function getAllPlanets() {
+  return planets;
+}
 
-export { loadPlanets, planets };
+export { loadPlanets, getAllPlanets };
