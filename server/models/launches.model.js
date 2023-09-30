@@ -13,7 +13,7 @@ const launch = {
 launches.set(launch.flightNumber, launch);
 
 function getAllLaunches() {
-  Array.from(launches.values());
+  return Array.from(launches.values());
 }
 function addNewLaunch(launch) {
   latestFlightNumber++;

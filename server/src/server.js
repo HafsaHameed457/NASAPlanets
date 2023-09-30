@@ -15,7 +15,7 @@ const server = http.createServer(app);
 async function StartServer() {
   await loadPlanets();
   server.listen(PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+    console.log(`Server is running on port ${PORT}`);
   });
 }
 
