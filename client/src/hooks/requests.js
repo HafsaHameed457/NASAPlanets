@@ -16,13 +16,19 @@ async function httpGetLaunches() {
 }
 
 async function httpSubmitLaunch(launch) {
-  const response = await fetch(`${url}/launch`, {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(launch),
-  });
+  try {
+    return await fetch(`${url}/launch`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(launch),
+    });
+  } catch (e) {
+    return {
+      ok: false,
+    };
+  }
 }
 
 async function httpAbortLaunch(id) {

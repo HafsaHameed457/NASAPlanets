@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(express.static("../server/public"));
 
 app.use("/planets", planetsRouter);
-app.use("/launches", launchesRouter);
+app.use("/launch", launchesRouter);
+app.use("/upcoming", launchesRouter);
 
 app.get("/", (req, res) => {
   res.sendFile("../server/public/index.html");

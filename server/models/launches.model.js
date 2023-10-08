@@ -13,6 +13,7 @@ const launch = {
 launches.set(launch.flightNumber, launch);
 
 function getAllLaunches() {
+  console.log("hw", launches);
   return Array.from(launches.values());
 }
 function addNewLaunch(launch) {
