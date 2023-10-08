@@ -1,6 +1,8 @@
+import { request } from "supertest";
+import app from "../../src/express";
 describe("Test GET /launches", () => {
-  test("It should respond with 200 success", () => {
-    const response = 200;
+  test("It should respond with 200 success", async () => {
+    const response = await request(app).get("/launch");
     expect(response).toBe(200);
   });
 });
