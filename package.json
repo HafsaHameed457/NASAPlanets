@@ -9,7 +9,7 @@
     "install": "npm run install-server && npm run install-client ",
     "server": " npm start --prefix server",
     "client": "npm start --prefix client",
-    "watch": "npm run server & npm run client",
+    "watch": "npm run server && npm run client",
     "test": "jest",
     "deploy": "concurrently \"npm run build --prefix client\" \"npm run build --prefix server\"",
     "deploy-cluster": "concurrently \"npm run start --prefix client\" \"npm run cluster --prefix server\"",
